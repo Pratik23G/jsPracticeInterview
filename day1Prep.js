@@ -32,3 +32,21 @@ console.log("Test 3 - Privacy Check:", myVault.secretCode === undefined ? "PASSE
 // Each call to createVault should create a new lexical environment in the heap.
 const secondVault = createVault("OtherSecret");
 console.log("Test 4 - Independence:", myVault.getCode() !== secondVault.getCode() ? "PASSED" : "FAILED");
+
+
+
+//new challange classic counter
+
+function createCounter()
+{
+    let functionVarPrivate = 0;
+
+    return function incrementCount(){
+        functionVarPrivate += 1;
+        return functionVarPrivate;
+    };
+}
+
+const counter = createCounter();
+console.log(counter()); // Expected output: 1
+console.log(counter()); // Expected output: 2
