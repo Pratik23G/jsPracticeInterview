@@ -50,3 +50,52 @@ function createCounter()
 const counter = createCounter();
 console.log(counter()); // Expected output: 1
 console.log(counter()); // Expected output: 2
+
+
+function outer() {
+    let message  = "Hello";
+
+    function inner(){
+        console.log(message);
+    }
+
+    inner();
+}
+
+mesage = "goodbye";
+
+outer();
+
+function createGame(){
+
+    let score = 0;
+
+    const increaseScore = (points) => {
+        score += points;
+        console.log(`+${points} pts`);
+    }
+
+    const decreaseScore = (points) => {
+        score -= points;
+        console.log(`-${points} pts`);
+    }
+
+    function getScore() {
+        return score;
+    }
+
+    return {increaseScore, decreaseScore, getScore};
+}
+
+const game = createGame();
+
+game.increaseScore(1);
+game.decreaseScore(0);
+
+game.increaseScore(1);
+game.increaseScore(1);
+
+game.getScore();
+
+console.log(`The current score is: ${game.getScore()} pts`);
+
