@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <body>
+    <h1>Color Box</h1>
+    <input id="colorInput" placeholder="Type a color..." />
+    <p id="label">Current color: (None)</p>
+    <div
+      id="box"
+      style="
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        margin-top: 1rem;
+      "
+    ></div>
+
+    <script>
+      // Your code here
+
+      const label = document.getElementById("label");
+
+      const userType = document.getElementById("colorInput");
+      const boxDisplay = document.getElementById("box");
+
+      userType.addEventListener("input", (event) => {
+        const color = event.target.value;
+
+        if (color === "") {
+          boxDisplay.style.backgroundColor = "white";
+          label.textContent = "Current color: (none)";
+        } else {
+          boxDisplay.style.backgroundColor = color;
+          label.textContent = `Current color: ${color}`;
+        }
+      });
+    </script>
+  </body>
+</html>
